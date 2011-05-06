@@ -16,37 +16,35 @@
  */
 package org.ow2.bonita;
 
-
 /**
  * @author Baptiste Mesta
- *
+ * 
  */
 public class FolderAlreadyExistsException extends Exception {
 
-
-  /**
+    /**
    * 
    */
-  private static final long serialVersionUID = -4879968518720277284L;
-  private final String name;
-  
-  public FolderAlreadyExistsException(final String id, final String name) {
-    super(name);
-    this.name = name;
-  }
-  
-  public FolderAlreadyExistsException(DocumentAlreadyExistsException e) {
-    super(e.getMessage());
-    this.name = e.getName();
-  }
+    private static final long serialVersionUID = -4879968518720277284L;
+    private final String      name;
 
-  /**
-   * @param folderName
-   * @param e
-   */
-  public FolderAlreadyExistsException(String folderName, Throwable t) {
-    super(t);
-    this.name = folderName;
-  }
+    public FolderAlreadyExistsException(final String id, final String name) {
+        super(name);
+        this.name = name;
+    }
+
+    public FolderAlreadyExistsException(DocumentAlreadyExistsException e) {
+        super(e.getMessage());
+        this.name = e.getName();
+    }
+
+    /**
+     * @param folderName
+     * @param e
+     */
+    public FolderAlreadyExistsException(String folderName, Throwable t) {
+        super(t);
+        this.name = folderName;
+    }
 
 }

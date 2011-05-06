@@ -1,4 +1,5 @@
 package org.ow2.bonita.services;
+
 /**
  * Copyright (C) 2011 BonitaSoft S.A.
  * BonitaSoft, 31 rue Gustave Eiffel - 38000 Grenoble
@@ -16,19 +17,18 @@ package org.ow2.bonita.services;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 /**
  * @author Baptiste Mesta
  * 
  */
 public interface DocumentationObject {
 
-  public String getId();
+    public String getId();
 
-  public String getName();
+    public String getName();
 
-  public void setId(String id);
-  
-  public String getParentFolderId();
+    public void setId(String id);
+
+    public String getParentFolderId();
 
 }

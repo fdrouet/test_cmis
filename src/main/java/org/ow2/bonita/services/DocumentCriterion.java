@@ -21,115 +21,104 @@ import java.util.Collection;
 
 /**
  * @author Baptiste Mesta
- *
+ * 
  */
 public class DocumentCriterion implements Serializable {
 
-  private static final long serialVersionUID = 8636952840023531275L;
+    private static final long           serialVersionUID = 8636952840023531275L;
 
-  private final DocumentSearchBuilder builder;
-  private final DocumentIndex fieldName;
-  private Object value;
-  private Object to;
-  private Object from;
+    private final DocumentSearchBuilder builder;
+    private final DocumentIndex         fieldName;
+    private Object                      value;
+    private Object                      to;
+    private Object                      from;
 
-  private Collection<?> in;
+    private Collection<?>               in;
 
-  /**
-   * @return the fieldName
-   */
-  public DocumentIndex getField() {
-    return fieldName;
-  }
+    /**
+     * @return the fieldName
+     */
+    public DocumentIndex getField() {
+        return fieldName;
+    }
 
+    /**
+     * @return the value
+     */
+    public Object getValue() {
+        return value;
+    }
 
-  /**
-   * @return the value
-   */
-  public Object getValue() {
-    return value;
-  }
+    /**
+     * @return the to
+     */
+    public Object getTo() {
+        return to;
+    }
 
+    /**
+     * @return the from
+     */
+    public Object getFrom() {
+        return from;
+    }
 
-  /**
-   * @return the to
-   */
-  public Object getTo() {
-    return to;
-  }
+    /**
+     * @param index
+     * @param builder
+     */
+    public DocumentCriterion(DocumentIndex index, DocumentSearchBuilder builder) {
+        this.fieldName = index;
+        this.builder = builder;
 
+    }
 
-  /**
-   * @return the from
-   */
-  public Object getFrom() {
-    return from;
-  }
+    public DocumentCriterion equalsTo(Object value) {
+        this.value = value;
+        return this;
+    }
 
+    public DocumentCriterion between(Object from, Object to) {
+        this.from = from;
+        this.to = to;
+        return this;
+    }
 
-  /**
-   * @param index
-   * @param builder
-   */
-  public DocumentCriterion(DocumentIndex index, DocumentSearchBuilder builder) {
-    this.fieldName = index;
-    this.builder = builder;
-    
-  }
-  
+    public DocumentCriterion in(Collection<?> values) {
+        this.in = values;
+        return this;
+    }
 
-  public DocumentCriterion equalsTo(Object value) {
-    this.value = value;
-    return this;
-  }
+    public DocumentSearchBuilder rightParenthesis() {
+        builder.rightParenthesis();
+        return builder;
+    }
 
-  public DocumentCriterion between(Object from, Object to) {
-    this.from = from;
-    this.to = to;
-    return this;
-  }
-  
-  public DocumentCriterion in(Collection<?> values) {
-    this.in = values;
-    return this;
-  }
+    public DocumentSearchBuilder or() {
+        builder.or();
+        return builder;
+    }
 
+    public DocumentSearchBuilder and() {
+        builder.and();
+        return builder;
+    }
 
-  
-  public DocumentSearchBuilder rightParenthesis() {
-    builder.rightParenthesis();
-    return builder;
-  }
+    public DocumentSearchBuilder allVersion() {
+        builder.allVersion();
+        return builder;
+    }
 
-  public DocumentSearchBuilder or() {
-    builder.or();
-    return builder;
-  }
+    public DocumentSearchBuilder latestVersion() {
+        builder.latestVersion();
+        return builder;
+    }
 
-  public DocumentSearchBuilder and() {
-    builder.and();
-    return builder;
-  }
-  
-
-  public DocumentSearchBuilder allVersion() {
-    builder.allVersion();
-    return builder;
-  }
-  
-  public DocumentSearchBuilder latestVersion() {
-    builder.latestVersion();
-    return builder;
-  }
-
-
-  /**
-   * @return
-   */
-  public Collection<?> getValues() {
-    return in;
-  }
-
-
+    /**
+     * @return
+     */
+    public Collection<?> getValues() {
+        return in;
+    }
 
 }

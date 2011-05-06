@@ -15,39 +15,38 @@
  **/
 package org.ow2.bonita.facade.uuid;
 
-
 /**
  * This class implements the UUID for {@link org.ow2.bonita.facade.runtime.ProcessInstance}
  */
 public class ProcessInstanceUUID extends AbstractUUID {
 
-  private static final long serialVersionUID = 5998937898749679099L;
+    private static final long serialVersionUID = 5998937898749679099L;
 
-  protected ProcessInstanceUUID() {
-    super();
-  }
+    protected ProcessInstanceUUID() {
+        super();
+    }
 
-  public ProcessInstanceUUID(final ProcessInstanceUUID src) {
-    super(src);
-  }
+    public ProcessInstanceUUID(final ProcessInstanceUUID src) {
+        super(src);
+    }
 
-  public ProcessInstanceUUID(final String value) {
-    super(value);
-  }
+    public ProcessInstanceUUID(final String value) {
+        super(value);
+    }
 
-  public ProcessInstanceUUID(final ProcessDefinitionUUID processUUID, final  long instanceNb) {
-    this(processUUID + SEPARATOR + instanceNb);
-  }
+    public ProcessInstanceUUID(final ProcessDefinitionUUID processUUID, final long instanceNb) {
+        this(processUUID + SEPARATOR + instanceNb);
+    }
 
-  @Deprecated
-  public ProcessDefinitionUUID getProcessDefinitionUUID() {
-    final String processUUID = value.substring(0, value.lastIndexOf(SEPARATOR));
-    return new ProcessDefinitionUUID(processUUID);
-  }
+    @Deprecated
+    public ProcessDefinitionUUID getProcessDefinitionUUID() {
+        final String processUUID = value.substring(0, value.lastIndexOf(SEPARATOR));
+        return new ProcessDefinitionUUID(processUUID);
+    }
 
-  @Deprecated
-  public long getInstanceNb() {
-    return new Long(value.substring(value.lastIndexOf(SEPARATOR) + SEPARATOR.length()));
-  }
+    @Deprecated
+    public long getInstanceNb() {
+        return new Long(value.substring(value.lastIndexOf(SEPARATOR) + SEPARATOR.length()));
+    }
 
 }

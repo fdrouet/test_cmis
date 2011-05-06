@@ -13,29 +13,29 @@
  **/
 package org.ow2.bonita;
 
-
 /**
  * Exception thrown when a document with the same name already exists
+ * 
  * @author Nicolas Chabanoles
- *
+ * 
  */
 public class DocumentAlreadyExistsException extends DocumentationCreationException {
 
-  private static final long serialVersionUID = -4313414187229317438L;
-  private final String name;
+    private static final long serialVersionUID = -4313414187229317438L;
+    private final String      name;
 
-  public DocumentAlreadyExistsException(final String id, final String name) {
-    super(name);
-    this.name = name;
-  }
+    public DocumentAlreadyExistsException(final String id, final String name) {
+        super(name);
+        this.name = name;
+    }
 
-  public DocumentAlreadyExistsException(DocumentAlreadyExistsException e) {
-    super(e);
-    this.name = e.getName();
-  }
+    public DocumentAlreadyExistsException(DocumentAlreadyExistsException e) {
+        super(e);
+        this.name = e.getName();
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public String getName() {
+        return this.name;
+    }
 
 }

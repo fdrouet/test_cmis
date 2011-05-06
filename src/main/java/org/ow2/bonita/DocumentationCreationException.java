@@ -21,20 +21,20 @@ package org.ow2.bonita;
  */
 public class DocumentationCreationException extends Exception {
 
-  private static final long serialVersionUID = -2543890613924795697L;
+    private static final long serialVersionUID = -2543890613924795697L;
 
-  public DocumentationCreationException(final String message) {
-    super(message);
-  }
+    public DocumentationCreationException(final String message) {
+        super(message);
+    }
 
-  public DocumentationCreationException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
+    public DocumentationCreationException(final String message, final Throwable cause) {
+        super(message, cause);
+    }
 
-  /**
+    /**
  * 
  */
-  public DocumentationCreationException(Exception e) {
-    super(e);
-  }
+    public DocumentationCreationException(Exception e) {
+        super(e);
+    }
 }

@@ -16,12 +16,10 @@
  */
 package org.ow2.bonita.services;
 
-
 /**
  * @author Baptiste Mesta
  * 
  */
 public interface Folder extends DocumentationObject {
-
 
 }

@@ -20,64 +20,64 @@ import java.util.List;
 /**
  * 
  * @author Baptiste Mesta
- *
+ * 
  */
 public class DocumentSearchBuilder implements Serializable {
 
-  private static final long serialVersionUID = 6226365334784520445L;
+    private static final long serialVersionUID  = 6226365334784520445L;
 
-  private List<Object> query;
-  private boolean searchAllVersions = false;
+    private List<Object>      query;
+    private boolean           searchAllVersions = false;
 
-  public DocumentSearchBuilder() {
-    query = new ArrayList<Object>();
-  }
+    public DocumentSearchBuilder() {
+        query = new ArrayList<Object>();
+    }
 
-  public DocumentCriterion criterion(DocumentIndex index) {
-    DocumentCriterion criterion = new DocumentCriterion(index, this);
-    query.add(criterion);
-    return criterion;
-  }
+    public DocumentCriterion criterion(DocumentIndex index) {
+        DocumentCriterion criterion = new DocumentCriterion(index, this);
+        query.add(criterion);
+        return criterion;
+    }
 
-  public DocumentSearchBuilder leftParenthesis() {
-    query.add(QueryFormatter.L_PARENTHESIS);
-    return this;
-  }
+    public DocumentSearchBuilder leftParenthesis() {
+        query.add(QueryFormatter.L_PARENTHESIS);
+        return this;
+    }
 
-  public DocumentSearchBuilder rightParenthesis() {
-    query.add(QueryFormatter.R_PARENTHESIS);
-    return this;
-  }
+    public DocumentSearchBuilder rightParenthesis() {
+        query.add(QueryFormatter.R_PARENTHESIS);
+        return this;
+    }
 
-  public DocumentSearchBuilder or() {
-    query.add(QueryFormatter.OR);
-    return this;
-  }
+    public DocumentSearchBuilder or() {
+        query.add(QueryFormatter.OR);
+        return this;
+    }
 
-  public DocumentSearchBuilder and() {
-    query.add(QueryFormatter.AND);
-    return this;
-  }
+    public DocumentSearchBuilder and() {
+        query.add(QueryFormatter.AND);
+        return this;
+    }
 
-  public List<Object> getQuery() {
-    return query;
-  }
+    public List<Object> getQuery() {
+        return query;
+    }
 
-  public DocumentSearchBuilder allVersion() {
-    this.searchAllVersions = true;
-    return this;
-  }
-  
-  public DocumentSearchBuilder latestVersion() {
-    this.searchAllVersions = false;
-    return this;
-  }
+    public DocumentSearchBuilder allVersion() {
+        this.searchAllVersions = true;
+        return this;
+    }
 
-  /**
-   * @return
-   */
-  public boolean isSearchAllVersions() {
-    return searchAllVersions;
-  }
-  
+    public DocumentSearchBuilder latestVersion() {
+        this.searchAllVersions = false;
+        return this;
+    }
+
+    /**
+     * @return
+     */
+    public boolean isSearchAllVersions() {
+        return searchAllVersions;
+    }
+
 }

@@ -19,25 +19,25 @@ import java.util.List;
 /**
  * 
  * @author Matthieu Chaffotte
- *
+ * 
  */
 public class DocumentResult implements Serializable {
 
-  private static final long serialVersionUID = -1342097190278614318L;
-  private final int count;
-  private final List<Document> documents;
+    private static final long    serialVersionUID = -1342097190278614318L;
+    private final int            count;
+    private final List<Document> documents;
 
-  public DocumentResult(int count, List<Document> documents) {
-    this.count = count;
-    this.documents = documents;
-  }
+    public DocumentResult(int count, List<Document> documents) {
+        this.count = count;
+        this.documents = documents;
+    }
 
-  public int getCount() {
-    return count;
-  }
+    public int getCount() {
+        return count;
+    }
 
-  public List<Document> getDocuments() {
-    return documents;
-  }
+    public List<Document> getDocuments() {
+        return documents;
+    }
 
 }

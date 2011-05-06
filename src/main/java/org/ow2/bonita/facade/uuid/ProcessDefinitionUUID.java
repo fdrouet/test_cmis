@@ -1,4 +1,5 @@
 package org.ow2.bonita.facade.uuid;
+
 /**
  * Copyright (C) 2006  Bull S. A. S.
  * Bull, Rue Jean Jaures, B.P.68, 78340, Les Clayes-sous-Bois
@@ -15,38 +16,37 @@ package org.ow2.bonita.facade.uuid;
  * Modified by Matthieu Chaffotte - BonitaSoft S.A.
  **/
 
-
 /**
  * This class implements the UUID for {@link org.ow2.bonita.facade.def.majorElement.ProcessDefinition}
  */
 public class ProcessDefinitionUUID extends AbstractUUID {
 
-  private static final long serialVersionUID = -4872434654376672460L;
-  
-  protected ProcessDefinitionUUID() {
-    super();
-  }
+    private static final long serialVersionUID = -4872434654376672460L;
 
-  public ProcessDefinitionUUID(final ProcessDefinitionUUID src) {
-    super(src);
-  }
+    protected ProcessDefinitionUUID() {
+        super();
+    }
 
-  public ProcessDefinitionUUID(final String value) {
-    super(value);
-  }
+    public ProcessDefinitionUUID(final ProcessDefinitionUUID src) {
+        super(src);
+    }
 
-  public ProcessDefinitionUUID(final String processName, final String processVersion) {
-    this(processName + SEPARATOR + processVersion);
-  }
+    public ProcessDefinitionUUID(final String value) {
+        super(value);
+    }
 
-  @Deprecated
-  public String getProcessName() {
-    return value.split(SEPARATOR)[0];
-  }
+    public ProcessDefinitionUUID(final String processName, final String processVersion) {
+        this(processName + SEPARATOR + processVersion);
+    }
 
-  @Deprecated
-  public String getProcessVersion() {
-    return value.split(SEPARATOR)[1];
-  }
+    @Deprecated
+    public String getProcessName() {
+        return value.split(SEPARATOR)[0];
+    }
+
+    @Deprecated
+    public String getProcessVersion() {
+        return value.split(SEPARATOR)[1];
+    }
 
 }

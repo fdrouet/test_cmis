@@ -13,33 +13,33 @@
  **/
 package org.ow2.bonita;
 
-
 /**
  * Exception thrown when a document is not found in the system
+ * 
  * @author Nicolas Chabanoles
- *
+ * 
  */
 public class DocumentNotFoundException extends Exception {
 
-  private static final long serialVersionUID = -4313414187229317438L;
-  private final String id;
-  
-  public DocumentNotFoundException(final String id) {
-    super(id);
-    this.id = id;
-  }
-  
-  public DocumentNotFoundException(DocumentNotFoundException e) {
-    super(e);
-    this.id = e.getId();
-  }
-  
-  public DocumentNotFoundException(final String id, Exception cause) {
-    super(id,cause);
-    this.id = id;
-  }
-  
-  public String getId() {
-    return this.id;
-  }
+    private static final long serialVersionUID = -4313414187229317438L;
+    private final String      id;
+
+    public DocumentNotFoundException(final String id) {
+        super(id);
+        this.id = id;
+    }
+
+    public DocumentNotFoundException(DocumentNotFoundException e) {
+        super(e);
+        this.id = e.getId();
+    }
+
+    public DocumentNotFoundException(final String id, Exception cause) {
+        super(id, cause);
+        this.id = id;
+    }
+
+    public String getId() {
+        return this.id;
+    }
 }

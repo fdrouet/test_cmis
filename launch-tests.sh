@@ -3,7 +3,7 @@
 # if $1 is not specified, mvn test is launch once
 # if $1 is -1, mvn test is launched until the script is killed (CTRL+C)
 
-ROOT_OUTPUT_DIR="/eXo-Bonita/xcmis-tomcat/OUTPUT"
+ROOT_OUTPUT_DIR="/eXo-Bonita/xcmis-tests.git/OUTPUT"
 
 if [ -z $1 ]; then
 	NBR="1"

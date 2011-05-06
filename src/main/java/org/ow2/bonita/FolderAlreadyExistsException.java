@@ -20,7 +20,7 @@ package org.ow2.bonita;
  * @author Baptiste Mesta
  * 
  */
-public class FolderAlreadyExistsException extends Exception {
+public class FolderAlreadyExistsException extends DocumentationCreationException {
 
     /**
    * 
@@ -33,9 +33,9 @@ public class FolderAlreadyExistsException extends Exception {
         this.name = name;
     }
 
-    public FolderAlreadyExistsException(DocumentAlreadyExistsException e) {
-        super(e.getMessage());
-        this.name = e.getName();
+    public FolderAlreadyExistsException(String folderName) {
+        super(folderName);
+        this.name = folderName;
     }
 
     /**
@@ -43,7 +43,7 @@ public class FolderAlreadyExistsException extends Exception {
      * @param e
      */
     public FolderAlreadyExistsException(String folderName, Throwable t) {
-        super(t);
+        super(folderName, t);
         this.name = folderName;
     }
 

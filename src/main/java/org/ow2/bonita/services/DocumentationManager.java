@@ -13,24 +13,6 @@ import org.ow2.bonita.facade.uuid.ProcessInstanceUUID;
 public interface DocumentationManager {
 
     /**
-     * Checks whether the folder exist in the root of the repository according to its name.
-     * 
-     * @param folderName
-     *            the folder name
-     * @return true if the folder exists; false otherwise
-     */
-    boolean folderExists(final String folderName);
-
-    /**
-     * Checks whether the folder exist in the parent folder according to its name.
-     * 
-     * @param folderName
-     *            the folder name
-     * @return true if the folder exists; false otherwise
-     */
-    boolean folderExists(final String folderName, final String parentFolderId);
-
-    /**
      * Creates a folder according to its identifier.
      * 
      * @param folderName
@@ -62,9 +44,6 @@ public interface DocumentationManager {
     Document createDocument(final String name, final ProcessDefinitionUUID definitionUUID,
             final ProcessInstanceUUID instanceUUID, String fileName, String contentMimeType, final byte[] fileContent)
             throws DocumentationCreationException, DocumentAlreadyExistsException;
-
-    Document createDocument(final String name, final String folderId) throws DocumentationCreationException,
-            DocumentAlreadyExistsException;
 
     Document createDocument(final String name, final String folderId, String fileName, String contentMimeType,
             final byte[] fileContent) throws DocumentationCreationException, DocumentAlreadyExistsException;
@@ -136,16 +115,18 @@ public interface DocumentationManager {
     /**
      * @param documentId
      * @return
+     * @throws DocumentNotFoundException
      */
-    List<Document> getVersionsOfDocument(String documentId);
+    List<Document> getVersionsOfDocument(String documentId) throws DocumentNotFoundException;
 
     /**
      * Returns the path where the document is store. The path looks like "firstFodler/sub/Folder/..."
      * 
      * @param documentId
      * @return the path
+     * @throws DocumentNotFoundException
      */
-    String getDocumentPath(String documentId);
+    String getDocumentPath(String documentId) throws DocumentNotFoundException;
 
     Document createVersion(String documentId, boolean isMajorVersion) throws DocumentationCreationException;
 
@@ -164,11 +145,6 @@ public interface DocumentationManager {
 
     void updateDocumentContent(final String documentId, final String fileName, final String mimeType, final int size,
             final byte[] content) throws DocumentNotFoundException;
-
-    public abstract boolean documentExists(final ProcessDefinitionUUID processDefinitionUUID,
-            final ProcessInstanceUUID processInstanceUUID, final String name);
-
-    public abstract boolean documentExists(final ProcessDefinitionUUID processDefinitionUUID, final String name);
 
     public void attachDocumentTo(final ProcessDefinitionUUID processDefinitionUUID, final String documentId)
             throws DocumentNotFoundException;

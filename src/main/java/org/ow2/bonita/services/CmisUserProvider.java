@@ -20,6 +20,10 @@ package org.ow2.bonita.services;
  * @author Baptiste Mesta
  * 
  */
-public enum DocumentIndex {
-    PROCESS_INSTANCE_UUID, PROCESS_DEFINITION_UUID, PROCESS_DEFINITION_UUID_WITHOUT_INSTANCES, ID, NAME, FILENAME, AUTHOR, CREATION_DATE, LAST_MODIFICATION_DATE, IS_EMPTY,
+public interface CmisUserProvider {
+
+    String getUser(String bonitaUser);
+
+    String getPassword(String bonitaUser);
+
 }

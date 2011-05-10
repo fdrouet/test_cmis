@@ -1,6 +1,7 @@
 .settings/
 target/
 OUTPUT/
+OUTPUT*/
 
 .DS_Store
 
